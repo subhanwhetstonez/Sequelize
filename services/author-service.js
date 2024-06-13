@@ -1,11 +1,10 @@
-const { Author, Blog } = require("../models");
-const db = require("../models");
+const Author = require("../models").default;
+const BLog = require("../models").default;
+const { all } = require("../routes");
 
 class AuthorServices {
   async authorDisplay() {
-    return await Author.findAll({
-      include: Blog,
-    });
+    return await Author.findAll();
   }
 
   async authorInput(full_name) {

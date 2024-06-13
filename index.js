@@ -8,7 +8,9 @@ const { author } = require("./models");
 app.use(express.json());
 app.use("/author", Allroute);
 
-app.use("/");
+app.use("/", (req, res) => {
+  res.send("Server up");
+});
 
 db.sequelize.sync().then((req) => {
   app.listen(3020, () => {
