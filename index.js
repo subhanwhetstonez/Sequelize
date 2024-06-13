@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
-const Allroute = require("./routes.js");
+const Allauthorroute = require("./routes/author-routes.js");
+const Allblogroute = require("./routes/blog-routes.js");
 
 const db = require("./models");
 const { author } = require("./models");
 
 app.use(express.json());
-app.use("/author", Allroute);
+app.use("/author", Allauthorroute);
+app.use("/blog", Allblogroute);
 
 app.use("/", (req, res) => {
   res.send("Server up");

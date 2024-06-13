@@ -1,4 +1,6 @@
 const authorServices = require("../services/author-service.js");
+const db = require("../models");
+const author = db.author;
 
 class AuthorController {
   constructor() {
@@ -11,7 +13,7 @@ class AuthorController {
   async authorShow(req, res) {
     console.log("authorShow:", this);
     console.log("authorShow author:", this.author);
-    const result = await this.author.authorDisplay();
+    const result = await author.this.author.authorDisplay();
     console.log("WWW");
     res.json(result);
   }
@@ -20,7 +22,7 @@ class AuthorController {
     console.log("authorPutin:", this);
     console.log("authorPutin author:", this.author);
     const { full_name } = req.body;
-    const result = await this.author.authorInput(full_name);
+    const result = await author.this.author.authorInput(full_name);
     res.json("Author HAS BEEN ADDED", result);
   }
 }
